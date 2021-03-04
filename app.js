@@ -3,6 +3,7 @@ const EXPRESS = require('express');
 const APP = EXPRESS();
 const BP = require('body-parser');
 var employee_routes = require('./src/routes/employee.routes');
+var optimization_routes = require('./src/routes/optimization.routes');
 
 APP.use((req,res,next )=>{
     res.header('Access-Control-Allow-Origin', '*');
@@ -15,5 +16,5 @@ APP.use((req,res,next )=>{
 APP.use(BP.json())
 APP.use(BP.urlencoded({ extended: true }))
 
-APP.use('/api/v1/',employee_routes);
+APP.use('/api/v1/',employee_routes, optimization_routes);
 module.exports = APP;
