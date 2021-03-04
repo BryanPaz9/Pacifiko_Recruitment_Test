@@ -2,7 +2,7 @@
 
 var express = require("express");
 
-const EmployeeController = require('../Controllers/EmployeeController');
+const EmployeeController = require('../controllers/employee.controller');
 var api = express.Router();
 api.get('/employees',EmployeeController.listAll);
 api.get('/employee/:id',EmployeeController.findById);

@@ -1,7 +1,8 @@
 'use strict'
 const EXPRESS = require('express');
 const APP = EXPRESS();
-var employee_routes = require('./src/Routes/employeeRoutes');
+const BP = require('body-parser');
+var employee_routes = require('./src/routes/employee.routes');
 
 APP.use((req,res,next )=>{
     res.header('Access-Control-Allow-Origin', '*');
@@ -11,8 +12,8 @@ APP.use((req,res,next )=>{
     next();
 })
 
-EXPRESS.urlencoded();
-EXPRESS.json();
+APP.use(BP.json())
+APP.use(BP.urlencoded({ extended: true }))
 
 APP.use('/api/v1/',employee_routes);
 module.exports = APP;

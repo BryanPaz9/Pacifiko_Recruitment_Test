@@ -11,4 +11,4 @@ var employeeSchema = Schema({
     profile_image: String
 });
 
-module.exports = mongoose.model('Employee', employeeSchema);
+module.exports = MONGOOSE.model('Employee', employeeSchema);
